@@ -1,6 +1,6 @@
 {
   "name": "lpulive-chat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Electron App for Lpu Live Chat Web Application",
   "main": "main.js",
   "scripts": {
@@ -20,13 +20,14 @@
     "release:mac": "yarn run clean && electron-builder --mac -p always",
     "release:win": "yarn run clean && electron-builder --win -p always"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/BRAVO68WEB/lpu-live-chat",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "lpu",
+    "lpu-live",
+    "chat",
+    "open-source",
+    "electron",
+    "nodejs"
   ],
   "author": {
     "name": "bravo68web",
