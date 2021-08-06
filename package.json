@@ -1,0 +1,55 @@
+{
+  "name": "lpulive-chat",
+  "version": "1.0.0",
+  "description": "An Electron App for Lpu Live Chat Web Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": {
+    "name": "bravo68web",
+    "email": "me@bravo68web.me",
+    "url": "https://bravo68web.me/"
+  },
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^13.1.8"
+  },
+  "build": {
+    "appId": "com.github.bravo68web.lpulive-chat",
+    "productName": "YouTube Music",
+    "mac": {
+      "identity": null,
+      "icon": "assets/generated/icons/mac/icon.icns"
+    },
+    "win": {
+      "icon": "assets/generated/icons/win/icon.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "runAfterFinish": false
+    },
+    "linux": {
+      "icon": "assets/generated/icons/png",
+      "category": "AudioVideo",
+      "target": [
+        "AppImage",
+        "snap",
+        "freebsd",
+        "deb",
+        "rpm"
+      ]
+    }
+  }
+}
