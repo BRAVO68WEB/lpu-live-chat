@@ -18,7 +18,7 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: "14.x"
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -33,11 +33,6 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn --frozen-lockfile
-
-      - name: Test
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: yarn test
 
       - name: Build on Mac
         if: startsWith(matrix.os, 'macOS')
