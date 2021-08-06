@@ -4,7 +4,21 @@
   "description": "An Electron App for Lpu Live Chat Web Application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "test": "jest",
+    "start:debug": "ELECTRON_ENABLE_LOGGING=1 electron .",
+    "icon": "rimraf icons/generated && electron-icon-maker --input=icons/logo.png --output=icons/generated",
+    "generate:package": "node utils/generate-package-json.js",
+    "postinstall": "yarn run icon",
+    "clean": "rimraf dist",
+    "build": "yarn run clean && electron-builder --win --mac --linux",
+    "build:linux": "yarn run clean && electron-builder --linux",
+    "build:mac": "yarn run clean && electron-builder --mac",
+    "build:win": "yarn run clean && electron-builder --win",
+    "lint": "xo",
+    "release:linux": "yarn run clean && electron-builder --linux -p always -c.snap.publish=github",
+    "release:mac": "yarn run clean && electron-builder --mac -p always",
+    "release:win": "yarn run clean && electron-builder --win -p always"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -20,18 +34,23 @@
     "url": "https://bravo68web.me/"
   },
   "license": "CC0-1.0",
+  "dependencies": {},
   "devDependencies": {
-    "electron": "^13.1.8"
+    "electron": "^13.1.8",
+    "electron-builder": "^22.10.5",
+    "electron-devtools-installer": "^3.1.1",
+    "electron-icon-maker": "0.0.5",
+    "xo": "^0.40.3"
   },
   "build": {
     "appId": "com.github.bravo68web.lpulive-chat",
-    "productName": "YouTube Music",
+    "productName": "LPU Live Chat",
     "mac": {
       "identity": null,
-      "icon": "assets/generated/icons/mac/icon.icns"
+      "icon": "icons/generated/icons/mac/icon.icns"
     },
     "win": {
-      "icon": "assets/generated/icons/win/icon.ico",
+      "icon": "icons/generated/icons/win/icon.ico",
       "target": [
         "nsis",
         "portable"
@@ -41,14 +60,34 @@
       "runAfterFinish": false
     },
     "linux": {
-      "icon": "assets/generated/icons/png",
-      "category": "AudioVideo",
+      "icon": "icons/generated/icons/png",
+      "category": "Social",
       "target": [
         "AppImage",
         "snap",
         "freebsd",
         "deb",
         "rpm"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=12.20",
+    "npm": "Please use yarn and not npm"
+  },
+  "xo": {
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "rules": {
+      "quotes": [
+        "error",
+        "double",
+        {
+          "avoidEscape": true,
+          "allowTemplateLiterals": true
+        }
       ]
     }
   }
